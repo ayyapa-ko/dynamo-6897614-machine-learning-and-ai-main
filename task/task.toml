@@ -1,0 +1,31 @@
+artifacts = ["/app/project/config.yaml", "/app/project/router.py"]
+
+[task]
+name = "dynamo/debug-ml-serving"
+description = "Fix interacting dynamic batching scheduler and speculative decoding routing defects in an ML serving codebase."
+
+[metadata]
+category = "Machine Learning and AI"
+subcategory = "ML serving deployment"
+model_tested = "Opus-4.8"
+agent_tested = "Terminus-2"
+task_objective = ["debug", "configure", "fix"]
+artifact_type = ["codebase", "configuration_file"]
+expert_time_estimate_hours = 2
+difficulty_explanation = "The task requires understanding subtle systems-level interactions in ML serving. The agent must diagnose how an aggressive max_batch_delay configuration interacts with a flawed token-threshold routing logic in the speculative decoder, leading to severe request starvation and KV-cache overflow under tight deterministic replay benchmarks."
+solution_explanation = "The solution requires: (1) modifying config.yaml to set max_batch_delay to a balanced window (e.g., 20ms instead of 500ms) to prevent starvation; (2) fixing the off-by-one or inverted logic comparison operators in router.py that evaluate the speculative length threshold against the KV-cache capacity constraints."
+verification_explanation = "The verifier runs a series of atomic assertions checking functional exactness of decoded tokens, throughput thresholds (> 50 req/sec), p99 latency limits (< 150ms), zero queue starvation logs, and strict adherence to KV-cache allocation rules."
+
+[verifier]
+timeout_sec = 180.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true

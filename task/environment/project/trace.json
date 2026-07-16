@@ -1,0 +1,17 @@
+[
+  {"id": 1, "arrival_time": 0.0, "prompt_length": 150},
+  {"id": 2, "arrival_time": 0.01, "prompt_length": 200},
+  {"id": 3, "arrival_time": 0.02, "prompt_length": 120},
+  {"id": 4, "arrival_time": 0.03, "prompt_length": 180},
+  {"id": 5, "arrival_time": 0.04, "prompt_length": 160},
+  {"id": 6, "arrival_time": 0.05, "prompt_length": 140},
+  {"id": 7, "arrival_time": 0.06, "prompt_length": 190},
+  {"id": 8, "arrival_time": 0.07, "prompt_length": 130},
+  {"id": 9, "arrival_time": 0.08, "prompt_length": 170},
+  {"id": 10, "arrival_time": 0.09, "prompt_length": 110},
+  {"id": 11, "arrival_time": 0.10, "prompt_length": 200},
+  {"id": 12, "arrival_time": 0.11, "prompt_length": 150},
+  {"id": 13, "arrival_time": 0.12, "prompt_length": 160},
+  {"id": 14, "arrival_time": 0.13, "prompt_length": 140},
+  {"id": 15, "arrival_time": 0.14, "prompt_length": 180}
+]

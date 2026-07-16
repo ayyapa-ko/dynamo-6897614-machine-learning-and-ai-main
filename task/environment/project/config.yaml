@@ -1,0 +1,6 @@
+# ML Serving Configuration
+max_batch_delay: 500  # milliseconds - MISCONFIGURED (should be ~20ms)
+max_batch_size: 32
+speculative_threshold: 128  # token count threshold for routing
+model_name: "transformer-base"
+inference_timeout: 30000  # milliseconds
